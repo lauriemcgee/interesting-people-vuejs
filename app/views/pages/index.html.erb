@@ -1,12 +1,19 @@
 
-<h4> THE MOST INTERESTING PEOPLE IN THE WORLD</h4>
-<h6> okay, that I could think of </h6>
+<h3> THE MOST INTERESTING PEOPLE IN THE WORLD</h3>
+<h5> Okay, that I could think of </h5>
 
 <div id="app">
-<ul>
-  <li v-for="person in people" v-on:hover="showBio(person)">
-    <p> {{ person.name }} </p>
-    <p v-if="person.bioVisible"> {{ person.bio }} </p>
-  </li>
-</ul>
+<h5>Total Interesting People We've Got: {{ people.length }}</h5>
+  <ul>
+    <li v-for="person in people">
+      <p v-on:click='toggleBio(person)'> {{ person.name }} </p>
+      <p v-if="person.bioVisible"> {{ person.bio }} </p>
+    </li>
+  </ul>
+  <div>
+  <h4> ADD NEW SUPER INTERESTING PERSON </h4>
+    Name: <input type='text' v-model='newPersonName'>
+    Bio: <input type='text' v-model='newPersonBio'>
+    <button v-on:click='addPerson()'>Add Person</button>
+  </div>
 </div>
